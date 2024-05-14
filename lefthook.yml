@@ -1,0 +1,13 @@
+pre-commit:
+  parallel: true
+  commands:
+    eslint:
+      glob: "*.{js,ts,jsx,tsx}"
+      run: npx eslint {staged_files}
+
+commit-msg:
+  parallel: true
+  commands:
+    lint-commit-msg:
+      run: npx --no-install commitlint --edit $1
+    
